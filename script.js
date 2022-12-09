@@ -1,17 +1,14 @@
-const productContainers = [...document.querySelectorAll('.product-container')];
+const prevButton = document.querySelector('.prev-btn');
+const nextButton = document.querySelector('.next-btn');
+let sliderMain = document.querySelector('.slider-main');
+const item = document.getElementsByClassName('item');
+const items = document.querySelectorAll('.item');
+// const item  = [...items];
 
-const nxtBtn = [...document.querySelectorAll('.next-btn')];
-const preBtn = [...document.querySelectorAll('.pre-btn')];
+nextButton.addEventListener('click', () =>{
+  sliderMain.append(item[0]);
+})
 
-productContainers.forEach((item, i) => {
-    let containerDimmension = item.getBoundingClientRect();
-    let containerWidth = containerDimmension.width;
-
-    nxtBtn[i].addEventListener('click', ()=>{
-        item.scrollLeft += containerWidth;
-    })
-
-    preBtn[i].addEventListener('click', ()=>{
-        item.scrollLeft -= containerWidth;
-    })
+prevButton.addEventListener('click', ()=>{
+  sliderMain.prepend(item[item.length -1 ]);
 })
